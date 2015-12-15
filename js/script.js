@@ -25,16 +25,36 @@ if (navigator.getUserMedia) {
             var mediaRecorder = new MediaStreamRecorder(stream);
             mediaRecorder.mimeType = 'video/webm';
 
-            mediaRecorder.width = 320;
-            mediaRecorder.height = 240;
+            mediaRecorder.width = 640;
+            mediaRecorder.height = 480;
 
             mediaRecorder.ondataavailable = function (blob) {
                 // POST/PUT "Blob" using FormData/XHR2
-                var blobURL = URL.createObjectURL(blob);
-                document.write('<a href="' + blobURL + '" target="_blank" >url</a>');
+                var fileType = 'video'; // or "audio"
+                var fileName = 'ABCDEF.webm';  // or "wav" or "ogg"
+
+                var formData = new FormData();
+                formData.append(fileType + '-filename', fileName);
+                formData.append(fileType + '-blob', blob);
+
+                xhr('save.php', formData, function (fileURL) {
+                    window.open(fileURL);
+                });
+
+                function xhr(url, data, callback) {
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function () {
+                        if (request.readyState == 4 && request.status == 200) {
+                            callback(location.href + request.responseText);
+                        }
+                    };
+                    request.open('POST', url);
+                    request.send(data);
+                }
+
             };
 
-            var duration = audio.duration*1000;
+            var duration = 1000;
 
             mediaRecorder.start(duration);
             setTimeout(function(){mediaRecorder.stop();}, duration);
@@ -49,7 +69,5 @@ if (navigator.getUserMedia) {
 else {
     document.writeln("Video capture is not supported");
 }
-
-
 
 
