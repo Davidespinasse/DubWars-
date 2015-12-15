@@ -1,26 +1,30 @@
+// check the browser
 navigator.getUserMedia = (navigator.getUserMedia || 
                           navigator.webkitGetUserMedia || 
                           navigator.mozGetUserMedia || 
                           navigator.msGetUserMedia);
 
 var video = document.querySelector('#video'),
-   audio = document.querySelector('#audio'),
-   cameraStream;
+    audio = document.querySelector('#audio'),
+    startButton = document.querySelector('#startButton'),
+    cameraStream;
 
 if (navigator.getUserMedia) {
-  // Request access to video only
   navigator.getUserMedia(
   {
       video:true,
       audio:false
   },        
   function(stream) {
+
+      //stream the device camera
       cameraStream = stream;
       video.src = window.URL.createObjectURL(stream); 
       
+      // record the stream
       document.querySelector('#startButton').addEventListener('click', function(){
 
-        $('#startButton').remove();
+        startButton.parentNode.removeChild(startButton);
 
         var mediaRecorder = new MediaStreamRecorder(stream);
         mediaRecorder.mimeType = 'video/webm';
@@ -30,6 +34,7 @@ if (navigator.getUserMedia) {
 
         var alea = Math.floor(Math.random()*10000001);
 
+        //save the record on the server
         mediaRecorder.ondataavailable = function (blob) {
           
           var fileType = 'video';
@@ -40,8 +45,11 @@ if (navigator.getUserMedia) {
           formData.append(fileType + '-filename', fileName);
           formData.append(fileType + '-blob', blob);
 
+          // interact with save.php in order to register the record
           xhr('save.php', formData, function (fileURL) {
+            // allow time to register the record (in case it's heavy)
             setTimeout(function(){
+              // append the record in DOM without reload the page
               $.ajax({
                   url: "uploads/"+fileName,
                   cache: false,
@@ -54,6 +62,7 @@ if (navigator.getUserMedia) {
             },1000);
           });
 
+          // interact with the server
           function xhr(url, data, callback) {
             var request = new XMLHttpRequest();
             request.onreadystatechange = function () {
@@ -67,11 +76,12 @@ if (navigator.getUserMedia) {
         }
 
         var duration = audio.duration*1000;
-
+        // record the video only during the time of the audio sample
         mediaRecorder.start(duration);    
         setTimeout(function(){
           mediaRecorder.stop();
           finishedVideo = document.querySelector('.finishedVideo');
+          paused = true;
         }, duration);
 
         audio.play();
@@ -86,8 +96,7 @@ else
   document.writeln("Video capture is not supported.");
 };
 
-// using jquery to catch the event loaded from ajax
-
+// using jquery to catch the element loaded with ajax
 var paused = false;
 
 $(document).on('click', '.finishedVideo', function(){
@@ -104,3 +113,9 @@ $(document).on('click', '.finishedVideo', function(){
     paused = false;
   }    
 });
+
+
+
+
+
+
