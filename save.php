@@ -6,7 +6,7 @@
         	$uploadDirectory = "uploads/$fileName";
 
         	if (!move_uploaded_file($_FILES["${type}-blob"]["tmp_name"], $uploadDirectory)) {
-            echo("problem moving uploaded file");
+            echo("Problem moving uploaded file.");
         	}
 
         echo($uploadDirectory);
