@@ -1,3 +1,7 @@
+/*
+* CAMERA STREAM AND RECORD 
+*/
+
 // check the browser
 navigator.getUserMedia = (navigator.getUserMedia || 
                           navigator.webkitGetUserMedia || 
@@ -9,7 +13,8 @@ var video = document.querySelector('#video'),
     startButton = document.querySelector('#startButton'),
     cameraStream,
     alreadyOn = false,
-    sFileName;
+    sFileName,
+    finishedVideo;
 
 if (navigator.getUserMedia) {
   navigator.getUserMedia(
@@ -24,7 +29,6 @@ if (navigator.getUserMedia) {
     
     // record the stream
     document.querySelector('#startButton').addEventListener('click', function(){
-      console.log('see the record');
       startButton.parentNode.removeChild(startButton);
 
       var mediaRecorder = new MediaStreamRecorder(stream);
@@ -93,7 +97,7 @@ else
 var paused = false;
 
 $(document).on('click', '.finishedVideo', function(){
-  var finishedVideo = document.querySelector('.finishedVideo');
+  finishedVideo = document.querySelector('.finishedVideo');
   console.log('click');
   if(paused == false) {    
     audio.pause();
@@ -134,5 +138,59 @@ function xhr(url, data, callback) {
   request.open('POST', url);
   request.send(data);
 }
+
+
+/*
+* VOLUME BAR 
+*/
+
+var volumeContainer  = document.querySelector('.volumeContainer'),
+    volumeBar        = document.querySelector('.volumeBar'),
+    volumeSeekBar    = document.querySelector('.volumeSeekBar');
+
+audio.volume = 0.5;
+refresh_volume_bar(audio.volume);
+var drag_volume;
+
+volumeBar.addEventListener('mousedown', function(e){
+  drag_volume = function(e){
+    audio.volume = refresh_audio_volume(e); 
+    e.preventDefault();
+  };
+  volumeBar.addEventListener('mousemove',drag_volume);
+  e.preventDefault();
+});
+
+window.addEventListener('mouseup', function(e){
+  volumeBar.removeEventListener('mousemove',drag_volume);
+});
+
+volumeBar.addEventListener('click', function(e){
+  audio.volume = refresh_audio_volume(e);
+});
+
+//refresh the video volume accordingly to the mouse position (when mouse is down)
+function refresh_audio_volume(e){
+  var bounding_rect = volumeBar.getBoundingClientRect(),
+    x         = e.clientX - bounding_rect.left,
+    volume      = Math.abs(x / bounding_rect.width);
+
+  if(volume >= 0 && volume <= 1){
+    refresh_volume_bar(volume); 
+    return volume;
+  }
+}
+
+function refresh_volume_bar(volume){
+  volumeSeekBar.style.webkitTransform = 'scaleX('+ volume +')';
+  volumeSeekBar.style.mozTransform = 'scaleX('+ volume +')';
+  volumeSeekBar.style.oTransform = 'scaleX('+ volume +')';
+  volumeSeekBar.style.transform = 'scaleX('+ volume +')';  
+}
+
+
+
+
+
 
 
