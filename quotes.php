@@ -9,15 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>DubWars - Trending Sounds</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/reset.css">
+    <link href="style/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/font-awesome.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,10 +42,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="theme.html"> <img class="icons" src="img/1.png" alt="">Themes</a>
+                    <a href="theme.php" class="active"> <img class="icons" src="img/1.png" alt="">Themes</a>
                 </li>
                 <li>
-                    <a href="#menu-togglephone"  id="menu-togglephone" class="active"><img class="icons" src="img/2.png" alt="">Trending sounds</a>
+                    <a href="#menu-togglephone"  ><img class="icons" src="img/2.png" alt="">Trending sounds</a>
                 </li>
                 <li>
                     <a href="#"><img class="icons" src="img/3.png" alt="">Best of Community</a>
@@ -69,25 +69,42 @@
                 <div class="row">
                     <div class="col-lg-12 top">
                         <button href="#menu-toggle" class="col-lg-1 col-md-1 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
-                        <div class="col-lg-2 col-md-2 col-xs-1 blank"></div>
-                        <h2 class="col-lg-6 col-md-6 col-xs-7 name">"Your focus determines your reality." -Qui-Gon Jinn</h2>
-                        <div class="col-lg-2 col-md-2 col-xs-1 blank"></div>
-                        <div class=" col-lg-1 col-md-1 col-xs-1 soundselect">
-                          <img src="img/volume_up.png" alt="">
-                        </div>
                     </div>
-                    <div class="col-lg-12 stream">
-                      <img src="img/cam.png" alt="">
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-xs-12 command">
-                    <a class="col-lg-2 col-md-2 col-xs-2 previous" href="#" ><img src="img/arrow.png" alt=""> <p>Previous</p></a>
-                    
-                    <div class="col-lg-3 col-md-3 col-xs-2 blank"></div>
-                    <a class="col-lg-1 col-md-1 col-xs-2 start" href="#" > <p>Start</p> <img src="img/arrow.png" alt=""></a>
-                    <a class="col-lg-1 col-md-1 col-xs-2 restart" href="#" > <p>Restart </p><img src="img/restart.png" alt=""></a>
-                    <div class="col-lg-3 col-md-3 col-xs-2 blank"></div>
-                    <a class="col-lg-2 col-md-2 col-xs-2 next" href="#" > <p>Next </p><img src="img/arrow.png" alt=""></a>
-                    
+                    <div class="col-lg-12 center">
+
+                    <?php session_start();
+
+                      $themeId = $_GET['theme'];
+                      
+                      $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+
+                      function displayQuotes($id, $quote, $mini, $duration){
+                        echo  "<a href='recording.php?quote=" . $id . "' class='col-lg-12 col-md-12 col-xs-12 sounds'>
+                              <img class='iconsounds' src='" . $mini . "' alt=''>
+                              <p>" . $quote . "</p>
+                              <h5 class='time'>" . $duration . "</h5>
+                              </a>";
+                      }
+
+                      $query = $bdd->prepare("SELECT * FROM quotes_list");
+                      $query->execute();
+                      $result = $query->fetchAll();
+
+                      foreach ($result as $row) 
+                      {
+                        if($themeId == $row["theme"]){
+                          displayQuotes($row["id"], $row["quote"], $row["mini"], $row["duration"]);
+                        }
+                      }
+
+                    ?>
+
+
+                      <!--  <a href="page-webcam.html" class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p >"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <h5 class="time">0.12</h5>
+                       <img class="arrowplay" src="img/arrow.png" alt=""></a> -->
+                       
+                       
                     </div>
                 </div>
             </div>
