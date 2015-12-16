@@ -16,89 +16,108 @@ var video = document.querySelector('#video'),
     sFileName,
     finishedVideo;
 
-if (navigator.getUserMedia) {
-  navigator.getUserMedia(
-  {
-      video:true,
-      audio:false
-  },        
-  function(stream) {
-    //stream the device camera
-    cameraStream = stream;
-    video.src = window.URL.createObjectURL(stream); 
-    
-    // record the stream
-    document.querySelector('#startButton').addEventListener('click', function(){
-      startButton.parentNode.removeChild(startButton);
+cameraStreamAndRecord();    
 
-      var mediaRecorder = new MediaStreamRecorder(stream);
-      mediaRecorder.mimeType = 'video/webm';
+function cameraStreamAndRecord(){
 
-      mediaRecorder.width = 640;
-      mediaRecorder.height = 480;
+  if (navigator.getUserMedia) {
+    navigator.getUserMedia(
+    {
+        video:true,
+        audio:false
+    },        
+    function(stream) {
+      //stream the device camera
+      cameraStream = stream;
+      video.src = window.URL.createObjectURL(stream); 
+      
+      // record the stream
+      document.querySelector('#startButton').addEventListener('click', function(){
 
-      var alea = Math.floor(Math.random()*10000001);
+        $('#startButton').remove()
 
-      //save the record on the server
-      mediaRecorder.ondataavailable = function (blob) {
+        var mediaRecorder = new MediaStreamRecorder(stream);
+        mediaRecorder.mimeType = 'video/webm';
 
-        if(alreadyOn == false){
-          var fileType = 'video';
-          var fileName = alea+'.webm';
-          var test = 0;
+        mediaRecorder.width = 640;
+        mediaRecorder.height = 480;
 
-          var formData = new FormData();
-          formData.append(fileType + '-filename', fileName);
-          formData.append(fileType + '-blob', blob);
+        var alea = Math.floor(Math.random()*10000001);
 
-          // interact with save.php in order to register the record
-          xhr('save.php', formData, function (fileURL) {
-            // allow time to register the record (in case it's heavy)
-            setTimeout(function(){
-              // append the record in DOM without reload the page
-              $.ajax({
-                  url: "uploads/"+fileName,
-                  cache: false,
-                  success: function(){
+        //save the record on the server
+        mediaRecorder.ondataavailable = function (blob) {
+
+          if(alreadyOn == false){
+            var fileType = 'video';
+            var fileName = alea+'.webm';
+            var test = 0;
+
+            var formData = new FormData();
+            formData.append(fileType + '-filename', fileName);
+            formData.append(fileType + '-blob', blob);
+
+            // interact with save.php in order to register the record
+            xhr('save.php', formData, function (fileURL) {
+              // allow time to register the record (in case it's heavy)
+              setTimeout(function(){
+                // append the record in DOM without reload the page
+                $.ajax({
+                    url: "uploads/"+fileName,
+                    cache: false,
+                    success: function(){
                       $('#video').remove();
                       $('#audio').get(0).play();
                       $('body').append("<video autoplay class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
+                      $('body').append("<input type='button' value='Retry to record' class='restartRecordButton'>");
                       sFileName = fileName;                                                 
-                  },   
-              });
-            },1000);
-          });
-          alreadyOn = true;  
-        }  
-      }
+                    },   
+                });
+              },1000);
+            });
+            alreadyOn = true;  
+          }  
+        }
 
-      // record the video only during the time of the audio sample
-      var duration = audio.duration*1000;
+        // record the video only during the time of the audio sample
+        var duration = audio.duration*1000;
 
-      mediaRecorder.start(duration);    
-      setTimeout(function(){
-        mediaRecorder.stop();
-        finishedVideo = document.querySelector('.finishedVideo');
-      }, duration);
+        mediaRecorder.start(duration);    
+        setTimeout(function(){
+          mediaRecorder.stop();
+          finishedVideo = document.querySelector('.finishedVideo');
+        }, duration);
 
-      audio.play();
-    }); 
-  },
-  function() {
-    document.writeln("Problem with accessing the hardware.")
-  });
+        audio.play();
+      }); 
+    },
+    function() {
+      document.writeln("Problem with accessing the hardware.");
+    });
+  }
+  else 
+  {
+    document.writeln("Video capture is not supported.");
+  };
 }
-else 
-{
-  document.writeln("Video capture is not supported.");
-};
+
+ // interact with the server
+function xhr(url, data, callback) {
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+          callback(location.href + request.responseText);
+      }
+  };
+  request.open('POST', url);
+  request.send(data);
+}
 
 // using jquery to catch the element loaded with ajax
 var paused = false;
 
 $(document).on('click', '.finishedVideo', function(){
   finishedVideo = document.querySelector('.finishedVideo');
-  console.log('click');
   if(paused == false) {    
     audio.pause();
     finishedVideo.pause();
@@ -123,21 +142,22 @@ $(document).on('click', '.finishedVideo', function(){
       },   
     });
   }
-
 });
 
- // interact with the server
-function xhr(url, data, callback) {
-
-  var request = new XMLHttpRequest();
-  request.onreadystatechange = function () {
-      if (request.readyState == 4 && request.status == 200) {
-          callback(location.href + request.responseText);
-      }
-  };
-  request.open('POST', url);
-  request.send(data);
-}
+$(document).on('click', '.restartRecordButton', function(){
+  $.ajax({
+    success: function(){
+      $('.finishedVideo').remove();
+      $('body').append(video);
+      $('.restartRecordButton').remove();
+      $('body').append(startButton);
+      audio.currentTime = 0;
+      audio.pause();
+      cameraStreamAndRecord();
+      alreadyOn = false;
+    }, 
+  });  
+});
 
 
 /*
