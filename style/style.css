@@ -5,20 +5,28 @@ body{
 }
 
 .volumeContainer {
-	width: 100px;
+	width: 120px;
 	height: 21px;
 	background: #222222;
-	cursor : pointer;
+	cursor: pointer;
+	position: relative;
+}
+
+.volumeImage {
+	width: 14%;
+	position: absolute;
+	top: 7.2%;
+	left: 2%;
 }
 
 .volumeBar {
-	position: relative;
+	position: absolute;
 	width: 90px;
 	height: 15px;
 	background: #A7A7A7;
 	position: absolute;
 	top: 2.5px;
-	left: 5px;
+	left: 20%;
 }
 
 .volumeSeekBar {

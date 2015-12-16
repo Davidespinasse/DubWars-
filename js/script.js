@@ -208,6 +208,24 @@ function refresh_volume_bar(volume){
   volumeSeekBar.style.transform = 'scaleX('+ volume +')';  
 }
 
+var volumeImage = document.querySelector('.volumeImage'),
+    volumeSave = 0;
+
+volumeImage.addEventListener('click', function(){
+  var src = this.getAttribute('src');
+  if(src == 'images/volume_up.png') {
+    this.setAttribute('src','images/volume_mute.png');
+    volumeSave = audio.volume;
+    audio.volume = 0;
+    refresh_volume_bar(audio.volume);
+  }
+  else {
+    this.setAttribute('src','images/volume_up.png');
+    audio.volume = volumeSave;
+    refresh_volume_bar(audio.volume);
+  }
+});
+
 
 
 
