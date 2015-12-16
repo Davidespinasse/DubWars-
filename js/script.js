@@ -7,7 +7,9 @@ navigator.getUserMedia = (navigator.getUserMedia ||
 var video = document.querySelector('#video'),
     audio = document.querySelector('#audio'),
     startButton = document.querySelector('#startButton'),
-    cameraStream;
+    cameraStream,
+    alreadyOn = false,
+    sFileName;
 
 if (navigator.getUserMedia) {
   navigator.getUserMedia(
@@ -16,27 +18,27 @@ if (navigator.getUserMedia) {
       audio:false
   },        
   function(stream) {
+    //stream the device camera
+    cameraStream = stream;
+    video.src = window.URL.createObjectURL(stream); 
+    
+    // record the stream
+    document.querySelector('#startButton').addEventListener('click', function(){
+      console.log('see the record');
+      startButton.parentNode.removeChild(startButton);
 
-      //stream the device camera
-      cameraStream = stream;
-      video.src = window.URL.createObjectURL(stream); 
-      
-      // record the stream
-      document.querySelector('#startButton').addEventListener('click', function(){
+      var mediaRecorder = new MediaStreamRecorder(stream);
+      mediaRecorder.mimeType = 'video/webm';
 
-        startButton.parentNode.removeChild(startButton);
+      mediaRecorder.width = 640;
+      mediaRecorder.height = 480;
 
-        var mediaRecorder = new MediaStreamRecorder(stream);
-        mediaRecorder.mimeType = 'video/webm';
+      var alea = Math.floor(Math.random()*10000001);
 
-        mediaRecorder.width = 640;
-        mediaRecorder.height = 480;
+      //save the record on the server
+      mediaRecorder.ondataavailable = function (blob) {
 
-        var alea = Math.floor(Math.random()*10000001);
-
-        //save the record on the server
-        mediaRecorder.ondataavailable = function (blob) {
-          
+        if(alreadyOn == false){
           var fileType = 'video';
           var fileName = alea+'.webm';
           var test = 0;
@@ -56,37 +58,28 @@ if (navigator.getUserMedia) {
                   success: function(){
                       $('#video').remove();
                       $('#audio').get(0).play();
-                      $('body').append("<video autoplay class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");                                                 
+                      $('body').append("<video autoplay class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
+                      sFileName = fileName;                                                 
                   },   
               });
             },1000);
           });
+          alreadyOn = true;  
+        }  
+      }
 
-          // interact with the server
-          function xhr(url, data, callback) {
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function () {
-                if (request.readyState == 4 && request.status == 200) {
-                    callback(location.href + request.responseText);
-                }
-            };
-            request.open('POST', url);
-            request.send(data);
-          }
-        }
+      // record the video only during the time of the audio sample
+      var duration = audio.duration*1000;
 
-        var duration = audio.duration*1000;
-        // record the video only during the time of the audio sample
-        mediaRecorder.start(duration);    
-        setTimeout(function(){
-          mediaRecorder.stop();
-          finishedVideo = document.querySelector('.finishedVideo');
-          paused = true;
-        }, duration);
+      mediaRecorder.start(duration);    
+      setTimeout(function(){
+        mediaRecorder.stop();
+        finishedVideo = document.querySelector('.finishedVideo');
+      }, duration);
 
-        audio.play();
-        }); 
-      },
+      audio.play();
+    }); 
+  },
   function() {
     document.writeln("Problem with accessing the hardware.")
   });
@@ -101,21 +94,45 @@ var paused = false;
 
 $(document).on('click', '.finishedVideo', function(){
   var finishedVideo = document.querySelector('.finishedVideo');
+  console.log('click');
   if(paused == false) {    
     audio.pause();
     finishedVideo.pause();
     paused = true;
   } 
-  else 
-  {
+  else {
     audio.play();
     finishedVideo.play();
     paused = false;
-  }    
+  } 
+
+  // resolv problem in firefox
+  if(finishedVideo.currentTime == finishedVideo.duration) {
+    $.ajax({
+      url: "uploads/"+sFileName,
+      cache: false,
+      success: function(){
+          $('.finishedVideo').remove();
+          $('#audio').get(0).play();
+          $('body').append("<video autoplay class='finishedVideo'> <source src='./uploads/"+ sFileName + "' type='video/webm'></video>");
+          paused = false;                                                 
+      },   
+    });
+  }
+
 });
 
+ // interact with the server
+function xhr(url, data, callback) {
 
-
-
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+      if (request.readyState == 4 && request.status == 200) {
+          callback(location.href + request.responseText);
+      }
+  };
+  request.open('POST', url);
+  request.send(data);
+}
 
 
