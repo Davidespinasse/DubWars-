@@ -97,13 +97,7 @@
                         }
                       }
 
-                    ?>
-
-
-                      <!--  <a href="page-webcam.html" class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p >"Your focus determines your reality." -Qui-Gon Jinn</p>
-                       <h5 class="time">0.12</h5>
-                       <img class="arrowplay" src="img/arrow.png" alt=""></a> -->
-                       
+                    ?>                       
                        
                     </div>
                 </div>

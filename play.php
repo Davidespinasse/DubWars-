@@ -58,20 +58,23 @@
                     <div class="col-lg-12 top">
                         <button href="#menu-toggle" class="col-lg-1 col-md-1 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
                         <div class="col-lg-2 col-md-2 col-xs-1 blank"></div>
-                            <?php session_start();
+                        <?php session_start();
 
-                                $quoteId = $_GET['quote'];
-                                $_SESSION['actualId'] = $_GET['quote'];
+                            $fileId = $_GET['id'];
 
-                                $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+                            $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
 
-                                $query=$bdd->prepare("SELECT id, quote, audio FROM quotes_list WHERE id = '$quoteId'");
-                                $query->execute();
-                                $data=$query->fetch();
+                            $query=$bdd->prepare("SELECT url, quote_id FROM quotes_data WHERE url = '$fileId'");
+                            $query->execute();
+                            $dataFile=$query->fetch();
 
-                                echo "<audio src='". $data["audio"] ."' id='audio'></audio>";
+                            $quoteId = $dataFile['quote_id'];
 
-                                echo "<h2 class='col-lg-6 col-md-6 col-xs-6 name'>" . $data["quote"] . "</h2>";
+                            $query=$bdd->prepare("SELECT id, quote, audio FROM quotes_list WHERE id = '$quoteId'");
+                            $query->execute();
+                            $dataQuote=$query->fetch();
+
+                             echo "<h2 class='col-lg-6 col-md-6 col-xs-6 name'>" . $dataQuote["quote"] . "</h2>";
 
                             ?>
                         <div class="col-lg-1 col-md-1 col-xs-1 blank"></div>
@@ -83,7 +86,12 @@
                         </div>
                     </div>
 					<div class="col-lg-12 stream">
-                    	<video autoplay width='100%' height='100%' id='video'></video>
+                        <?php
+
+                            echo    "<audio autoplay src='". $dataQuote["audio"] ."' id='audio'></audio>
+                                    <video width='100%' height='100%' autoplay class='finishedVideo'> 
+                                    <source src='./uploads/" . $fileId . ".webm' type='video/webm'></video>";
+                        ?>
 					</div>
                     <div class="col-lg-12 col-md-12 col-xs-12 command">
                     <a class="col-lg-2 col-md-2 col-xs-2 blank" href="#" > </a>
@@ -101,11 +109,10 @@
 
     </div>
     
-
-	<script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"> </script>
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="js/script.js"></script>
-
+    <script src="js/script.js"></script>
+    
 	<script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();

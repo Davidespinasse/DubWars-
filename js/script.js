@@ -8,11 +8,11 @@ navigator.getUserMedia = (navigator.getUserMedia ||
                           navigator.mozGetUserMedia || 
                           navigator.msGetUserMedia);
 
-var video = document.querySelector('#video'),
-    audio = document.querySelector('#audio'),
-    startButton = document.querySelector('#startButton'),
+var video           = document.querySelector('#video'),
+    audio           = document.querySelector('#audio'),
+    startButton     = document.querySelector('#startButton'),
+    alreadyOn       = false,
     cameraStream,
-    alreadyOn = false,
     sFileName,
     finishedVideo;
 
@@ -28,19 +28,19 @@ function cameraStreamAndRecord(){
     },        
     function(stream) {
       //stream the device camera
-      cameraStream = stream;
-      video.src = window.URL.createObjectURL(stream); 
+      cameraStream  = stream;
+      video.src     = window.URL.createObjectURL(stream); 
       
       // record the stream
       document.querySelector('#startButton').addEventListener('click', function(){
 
         $('.start').css('display', 'none');
 
-        var mediaRecorder = new MediaStreamRecorder(stream);
-        mediaRecorder.mimeType = 'video/webm';
+        var mediaRecorder       = new MediaStreamRecorder(stream);
+        mediaRecorder.mimeType  = 'video/webm';
 
-        mediaRecorder.width = 640;
-        mediaRecorder.height = 480;
+        mediaRecorder.width   = 640;
+        mediaRecorder.height  = 480;
 
         var alea = Math.floor(Math.random()*10000001);
 
@@ -65,7 +65,7 @@ function cameraStreamAndRecord(){
                 $('#audio').get(0).play();
                 $('.restart').css('display','inline');
                 $('.stream').append("<video autoplay width='100%' height='100%' class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
-                sFileName = fileName; 
+                sFileName = fileName;
               },1000);
             });
             alreadyOn = true;  
@@ -176,8 +176,8 @@ volumeBar.addEventListener('click', function(e){
 //refresh the video volume accordingly to the mouse position (when mouse is down)
 function refresh_audio_volume(e){
   var bounding_rect = volumeBar.getBoundingClientRect(),
-    x         = e.clientX - bounding_rect.left,
-    volume      = Math.abs(x / bounding_rect.width);
+      x             = e.clientX - bounding_rect.left,
+      volume        = Math.abs(x / bounding_rect.width);
 
   if(volume >= 0 && volume <= 1){
     refresh_volume_bar(volume); 
@@ -187,13 +187,13 @@ function refresh_audio_volume(e){
 
 function refresh_volume_bar(volume){
   volumeSeekBar.style.webkitTransform = 'scaleX('+ volume +')';
-  volumeSeekBar.style.mozTransform = 'scaleX('+ volume +')';
-  volumeSeekBar.style.oTransform = 'scaleX('+ volume +')';
-  volumeSeekBar.style.transform = 'scaleX('+ volume +')';  
+  volumeSeekBar.style.mozTransform    = 'scaleX('+ volume +')';
+  volumeSeekBar.style.oTransform      = 'scaleX('+ volume +')';
+  volumeSeekBar.style.transform       = 'scaleX('+ volume +')';  
 }
 
 var volumeImage = document.querySelector('.volumeImage'),
-    volumeSave = 0;
+    volumeSave  = 0;
 
 volumeImage.addEventListener('click', function(){
   var src = this.getAttribute('src');
