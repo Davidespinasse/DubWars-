@@ -143,7 +143,6 @@ $(document).on('click', '#restartRecordButton', function(){
   $('.restart').css('display','none'); 
 });
 
-
 /*
 * VOLUME BAR 
 */
