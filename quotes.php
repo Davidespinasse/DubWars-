@@ -43,32 +43,39 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
         <img src="img/starwars.png" id="logo" alt="">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        
-                    </a>
-                </li>
-                <li>
-                    <a href="theme.php" class="active"> <img class="icons" src="img/1.png" alt="">Themes</a>
-                </li>
-                <li>
-                    <a href="#menu-togglephone"  ><img class="icons" src="img/2.png" alt="">Trending sounds</a>
-                </li>
-                <li>
-                    <a href="#"><img class="icons" src="img/3.png" alt="">Best of Community</a>
-                </li>
-                <li>
-                    <a href="#"><img class="icons" src="img/4.png" alt="">Leaderboard</a>
-                </li>
-                <li>
-                    <a href="#"><img class="icons" src="img/5.png" alt="">Account settings</a>
-                </li>
-                
-                
-            </ul>
-            <p class="rights">DubWars © | All rights reserved</p>
-        </div>
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#">
+            </a>
+          </li>
+          <li>
+            <a href="theme.php"><img class="icons" src="img/1.svg" alt="">Themes</a>
+          </li>
+          <li>
+            <a href="trendingSounds.php"><img class="icons" src="img/2.svg" alt="">Trending sounds</a>
+          </li>
+          <li>
+            <a href="bestOf.php"><img class="icons" src="img/3.svg" alt="">Best of Community</a>
+          </li>
+          <li>
+            <a href="leaderboard.php"><img class="icons" src="img/4.svg" alt="">Leaderboard</a>
+          </li>
+          <li>
+            <a href="account.php"><img class="icons" src="img/5.svg" alt="">Account settings</a>
+          </li>
+          <li>
+            <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
+          </li>
+          <li>
+            <a href="mydubs.php"><img class="icons" src="img/7.svg" alt="">My dubs</a>
+          </li>
+          <li>
+            <a href="dc.php"><img class="icons" src="img/8.svg" alt="">Sign out</a>
+          </li>
+
+        </ul>
+        <p class="rights">DubWars © | All rights reserved</p>
+      </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->

@@ -35,32 +35,40 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
         <img src="img/starwars.png" id="logo" alt="">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        
-                    </a>
-                </li>
-                <li>
-                    <a href="theme.php"> <img class="icons" src="img/1.png" alt="">Themes</a>
-                </li>
-                <li>
-                    <a href="#menu-togglephone"  id="menu-togglephone" class="active"><img class="icons" src="img/2.png" alt="">Trending sounds</a>
-                </li>
-                <li>
-                    <a href="#"><img class="icons" src="img/3.png" alt="">Best of Community</a>
-                </li>
-                <li>
-                    <a href="#"><img class="icons" src="img/4.png" alt="">Leaderboard</a>
-                </li>
-                <li>
-                    <a href="#"><img class="icons" src="img/5.png" alt="">Account settings</a>
-                </li>
-                
-                
-            </ul>
-            <p class="rights">DubWars © | All rights reserved</p>
-        </div>
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#">
+
+            </a>
+          </li>
+          <li>
+            <a href="theme.php"> <img class="icons" src="img/1.svg" alt="">Themes</a>
+          </li>
+          <li>
+            <a href="#menu-togglephone"  id="menu-togglephone" class="active"><img class="icons" src="img/2.svg" alt="">Trending sounds</a>
+          </li>
+          <li>
+            <a href="bestOf.php"><img class="icons" src="img/3.svg" alt="">Best of Community</a>
+          </li>
+          <li>
+            <a href="leaderboard.php"><img class="icons" src="img/4.svg" alt="">Leaderboard</a>
+          </li>
+          <li>
+            <a href="account.php"><img class="icons" src="img/5.svg" alt="">Account settings</a>
+          </li>
+          <li>
+            <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
+          </li>
+          <li>
+            <a href="mydubs.php"><img class="icons" src="img/7.svg" alt="">My video </a>
+          </li>
+          <li>
+            <a href="dc.php"><img class="icons" src="img/8.svg" alt="">Sign out </a>
+          </li>
+
+        </ul>
+        <p class="rights">DubWars © | All rights reserved</p>
+      </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
@@ -71,64 +79,64 @@
                         <button href="#menu-toggle" class="col-lg-1 col-md-1 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
                     </div>
                     <div class="col-lg-12 center">
-                       <a href="page-webcam.html" class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p >"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a href="page-webcam.html" class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t1.svg" alt=""><p >"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t2.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t3.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t4.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t5.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t6.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t7.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t1.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t2.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t3.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t4.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t5.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t6.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t7.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t1.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t2.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t3.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t4.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t5.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
-                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/11.png" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
+                       <a class="col-lg-12 col-md-12 col-xs-12 sounds"><img class="iconsounds" src="img/t6.svg" alt=""><p>"Your focus determines your reality." -Qui-Gon Jinn</p>
                        <h5 class="time">0.12</h5>
                        <img class="arrowplay" src="img/arrow.png" alt=""></a>
                        

@@ -28,21 +28,21 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 all2">
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 first">
           <a href="">
-          <img src="img/chewbacca__render__by_aracnify-d93gt2s.png" alt="">
+          <img src="img/left.png" alt="">
             <h2>Select a Star Wars Sound</h2>
           </a>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0 blank"></div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 second">
           <a href="">
-          <img src="img/chewbacca__render__by_aracnify-d93gt2s.png" alt="">
+          <img src="img/mid.png" alt="">
             <h2>Let your imagination take over</h2>
           </a>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-0 col-xs-0 blank"></div>
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 third">
           <a href="">
-          <img src="img/chewbacca__render__by_aracnify-d93gt2s.png" alt="">
+          <img src="img/right.png" alt="">
             <h2>Share your Dubs to the World</h2>
           </a>
         </div>
@@ -50,7 +50,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 all3">
           <div class="col-lg-5 col-md-5 col-sm-4 col-xs-2 blank"></div>
           <div class="col-lg-2 col-md-2 col-sm-4 col-xs-8 dubing">
-            <a href="theme.php"><button><p>Start Dubing !</p></button></a>
+            <a href="login.php"><button><p>Start Dubing !</p></button></a>
           </div>
           <div class="col-lg-5 col-md-5 col-sm-4 col-xs-2 blank"></div>
         </div> 
