@@ -97,7 +97,7 @@
                 </form>
 
                 <div class="inscription">
-                   <button type="submit"><a href="register.php"><p>Register</p></a></button>
+                   <button><a href="register.php"><p>Register</p></a></button>
                 </div>
                 <div class="forgot">
                   <a href="#">Forgot your password ?</a>

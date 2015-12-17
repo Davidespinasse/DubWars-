@@ -116,7 +116,7 @@
         <script>
                 function GoNext(){ 
                   setTimeout(function () {
-                  window.location.href= 'theme.php'; // the redirect goes here
+                  window.location.href= 'index.php'; // the redirect goes here
                   },2000);
                 }
         </script>
@@ -133,7 +133,7 @@
                   $pass2 =  $_POST['pass2'];
                   $nick =   $_POST['nick'];
 
-                  $pass = sha1($pass);
+
                   if((!empty($_POST['nick']))&&(!empty($_POST['pass'])))
                   {
                     if(!preg_match('/[\'^£$%&*()}{@#~?><>,|="_+¬-]/', $nick)){
@@ -145,8 +145,10 @@
                         if (empty($data)) //check if nickname already exist
                         {
                           if($pass == $pass2){
+                          	$pass = sha1($pass);
                             $bdd->exec("INSERT INTO users(id, nick, pass) VALUES('', '$nick', '$pass')");
                             echo '<script>GoNext()</script>';
+                            $_SESSION["user"] = $nick;
                           }
                           else
                           {
