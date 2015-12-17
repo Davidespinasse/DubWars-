@@ -1,12 +1,3 @@
-<?php session_start();
-  if(!isset($_SESSION['user']))
-  {
-    header('Location: login.php');
-    exit;
-  }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +17,8 @@
     <link href="style/style.css" rel="stylesheet">
     <link rel="stylesheet" href="style/font-awesome.min.css">
 
+    <link rel="icon" type="image/png" href="img/favicon.ico" />
+
 
 </head>
 
@@ -43,10 +36,10 @@
             </a>
           </li>
           <li>
-            <a href="#menu-togglephone"  id="menu-togglephone" class="active"> <img class="icons" src="img/1.svg" alt="">Themes</a>
+            <a href="index.php"> <img class="icons" src="img/1.svg" alt="">Themes</a>
           </li>
           <li>
-            <a href="trendingSounds.php"><img class="icons" src="img/2.svg" alt="">Trending sounds</a>
+            <a href="trendingSounds.php"><img class="icons" src="img/2.svg" alt="">Trending Sounds</a>
           </li>
           <li>
             <a href="bestOf.php"><img class="icons" src="img/3.svg" alt="">Best of Community</a>
@@ -55,20 +48,32 @@
             <a href="leaderboard.php"><img class="icons" src="img/4.svg" alt="">Leaderboard</a>
           </li>
           <li>
-            <a href="account.php"><img class="icons" src="img/5.svg" alt="">Account settings</a>
+            <a href='#menu-togglephone'  id='menu-togglephone' class='active'><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
-          <li>
-            <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
-          </li>
-          <li>
-            <a href="mydubs.php"><img class="icons" src="img/7.svg" alt="">My video </a>
-          </li>
-          <li>
-            <a href="dc.php"><img class="icons" src="img/8.svg" alt="">Sign out </a>
-          </li>
+          <?php session_start();
+          if(isset($_SESSION['user']))
+          {
+            echo "
+            <li>
+              <a href='mydubs.php'><img class='icons' src='img/7.svg' alt=''>My Dubs</a>
+            </li>
+            <li>
+              <a href='account.php'><img class='icons' src='img/5.svg' alt=''>Account Settings</a>
+            </li>
+            <li>
+              <a href='dc.php'><img class='icons' src='img/8.svg' alt=''>Sign out</a>
+            </li> ";
+          }
+          else
+          {
+           echo "
+            <li>
+              <a href='login.php'><img class='icons' src='img/8.svg' alt=''>Sign in</a>
+            </li>"; 
+          }
+          ?>
 
         </ul>
-        <p class="rights">DubWars © | All rights reserved</p>
       </div>
         <!-- /#sidebar-wrapper -->
 
@@ -80,32 +85,51 @@
                         <button href="#menu-toggle" class=" col-lg-1 col-md-1 col-sm-2 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
                     </div>
                     <div class="col-lg-12 center">
-
-                      <?php
-
-                        $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
-
-                        function displayTheme($id, $name, $img){
-                          echo  "<a href='quotes.php?theme=". $id ."'>
-                                  <div class='col-lg-3 col-md-12 col-sm-12 themes'>
-                                    <img src='" . $img . "' alt=>
-                                    <p>" . $name . "</p>
-                                  </div>
-                                </a>";
-                        }
-
-                        $query = $bdd->prepare("SELECT * FROM themes_list");
-                        $query->execute();
-                        $result = $query->fetchAll();
-
-                        foreach ($result as $row) 
-                        {
-                          displayTheme($row["id"], $row["name"],$row["img"]);
-                        }
-
-                      ?>
-                      
+                      <a href='http://thegadgetflow.com/portfolio/darth-vader-inspired-watch/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>Darth Vader Inspired Watch - 400 Dubs</p>
+                       </div>
+                      </a>
+                      <a href='http://thegadgetflow.com/portfolio/star-wars-millennium-falcon-drone/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>Star Wars Millennium ... - 350 Dubs</p>
+                       </div>
+                      </a>  
+                      <a href='http://thegadgetflow.com/portfolio/star-wars-stormtrooper-helmet-mug/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>Star Wars Stormtrooper ... - 300 Dubs</p>
+                       </div>
+                      </a>  
+                      <a href='http://thegadgetflow.com/portfolio/star-wars-rebel-friends-cookie-cutters/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>Star Wars Rebel Frien ... - 250 Dubs</p>
+                       </div>
+                      </a>  
+                      <a href='http://thegadgetflow.com/portfolio/stormtrooper-usb-car-charger/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>Stormtrooper USB Ca ... - 200 Dubs</p>
+                       </div>
+                      </a>  
+                      <a href='http://thegadgetflow.com/portfolio/star-wars-yoda-3d-deco-light/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>Star Wars Yoda 3D ... - 150 Dubs</p>
+                       </div>
+                      </a>  
+                      <a href='http://thegadgetflow.com/portfolio/r2d2-concrete-book-end/' target="blank">
+                       <div class='col-lg-3 col-md-12 col-sm-12 themes'>
+                         <img widht='100px' height='100px' src='img/t12.svg' alt=''>
+                         <p>R2D2 Concrete ... - 100 Dubs</p>
+                       </div>
+                      </a>            
                     </div>
+
+
                 </div>
             </div>
         </div>

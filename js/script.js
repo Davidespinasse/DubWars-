@@ -60,15 +60,19 @@ function cameraStreamAndRecord(){
             // interact with save.php in order to register the record
             xhr('save.php', formData, function (fileURL) {
               // allow time to register the record (in case it's heavy)
+              $('#video').remove();
+              $('.stream').append("<div class='circle'><div class='circleInside'></div></div>");
               setTimeout(function(){
                 // append the record in DOM without reload the page
-                $('#video').remove();
-                $('#audio').get(0).play();
+                $('#audio').get(0);
                 $('.restart').css('display','inline');
-                $('.stream').append("<video autoplay width='100%' height='100%' class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
-                $('.link').append("<b>Link of your dub : </b></br><a href='http://leonarddupuis.fr/play.php?id="+name+"'>http://leonarddupuis.fr/play.php?id="+name+"</a>");
+                $('.circle').remove();
+                $('.link').append("<b>Link of your dub : </b>");
+                $('.link').append("<a href='http://leonarddupuis.fr/dubwars/play.php?id="+name+"'>http://leonarddupuis.fr/dubwars/play.php?id="+name+"</a>");
+                $('.stream').append("<video width='100%' height='100%' class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
+                paused = true;
                 sFileName = fileName;
-              },1000);
+              },3000);
             });
             alreadyOn = true;  
           }  
@@ -137,6 +141,7 @@ $(document).on('click', '.finishedVideo', function(){
 $(document).on('click', '#restartRecordButton', function(){
   $('.finishedVideo').remove();
   $('.link a').remove();
+  $('.link b').remove();
   $('.stream').append(video);
   audio.currentTime = 0;
   audio.pause();

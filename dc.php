@@ -1,6 +1,5 @@
-<?php session_start();
+           <?php session_start();
+              session_destroy();
+              header('Location: index.php');
+            ?>
 
-	session_destroy();
-	echo "Vous avez été correctement déconnecté, à très bientôt."
-
-?>

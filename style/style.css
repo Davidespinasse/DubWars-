@@ -6,13 +6,13 @@
 
 /* Toggle Styles */
 @font-face{
-    font-family: 'Din';
+    font-family: 'Din', Sans-Serif;
     src : url('../fonts/ufonts.com_din-regular.ttf');
 }
 
 body{
     background: #151515;
-    font-family: 'Din';
+    font-family: 'Din', Sans-Serif;
     font-size: 17px;
 }
 #wrapper {
@@ -66,6 +66,7 @@ body{
     display: block;
     width: 210px;
     height: 90px;
+    cursor: pointer;
 }
 .blank{
     height: 1px;
@@ -78,8 +79,8 @@ body{
     margin: 0px;
     padding-top: 50px;
     padding-bottom: 50px;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 58px;
+    padding-right: 58px;
     background: #222222;
     border-right: 14px solid #151515;
     border-top: 14px solid #151515;
@@ -93,7 +94,9 @@ body{
     margin-top: -10px;
     margin-right: auto;
     margin-left: auto;
-    display: block;  
+    display: block;
+    width: 100px;
+    height: 100px;
 }
 .themes .userimg{
     margin-top: -10px;
@@ -274,7 +277,31 @@ body{
     width: 100%;
     height: 95%;
     margin-left: 0px;
+}
+.circle {
+    margin: 12% auto;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border: 4px solid #FFFFFF;
+    border-radius: 50%;
+    animation: turn .8s infinite linear;
+}
 
+.circleInside {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    border: 6px solid #151515;
+    border-radius: 100% 0 0 0;
+    border-bottom: none;
+    border-right: none;
+    transform: translate(-20%, -18%);
+}
+
+@keyframes turn {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
 }
 .command{
     top: 10px;
@@ -391,7 +418,7 @@ body{
 }
 .titlelogo img{
     display: block;
-    margin-top: 8vw;
+    margin-top: 4vw;
     margin-right: auto;
     margin-left: auto;
 }
@@ -433,7 +460,7 @@ body{
     margin: auto;
     padding-top: 10px;
     text-decoration: none;
-    color: #aaa;
+    color: #222222;
 }
 .contain1 .inscription button{
     width: 48%;
@@ -453,7 +480,7 @@ body{
     margin: auto;
     padding-top: 10px;
     text-decoration: none;
-    color: #aaa;
+    color: #222222;
 }
 .contain1 .inscriptionfinal button{
     width: 50%;
@@ -473,7 +500,7 @@ body{
     margin: auto;
     padding-top: 10px;
     text-decoration: none;
-    color: #aaa;
+    color: #222222;
 }
 .contain1 .forgot {
     width: 100%;
@@ -505,7 +532,7 @@ body{
     color: #eee;
     font-size: 1px;
     text-align: center;
-    margin-top: 2vw;
+    margin-top: 5px;
     padding: 0;
 }
 .all2 .first a h2{
@@ -516,7 +543,7 @@ body{
     text-decoration: none;
 }
 .first a img{
-    width: 75%;
+    width: 65%;
     height: 75%;
 }
 .all2 .second a h2{
@@ -527,7 +554,7 @@ body{
     text-decoration: none;
 }
 .second a img{
-    width: 74%;
+    width: 65%;
     height: 74%;
 }
 .all2 .third a h2{
@@ -538,7 +565,7 @@ body{
     text-decoration: none;
 }
 .third a img{
-    width: 103%;
+    width: 93%;
     height: 103%;
 }
 .all3{
@@ -612,7 +639,7 @@ body{
     background: none;
 }
 .carousel-indicators{
-    margin-top: 50px;
+    bottom: -50px;
 }
 .titleaccount{
     text-align: center;
@@ -624,19 +651,29 @@ body{
     margin-top: 10px;
     border: none;
     background: #eee;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
+.contain .profileInformations{
+    background: #222222;
+    color: #aaa;
+    margin-top: 5vw;
+}
+.contain .profileInformations a{
+    text-decoration: none;
+}
+/*
 .contain1 .change button:hover{
     background: #151515;
     color: #aaa;
     text-decoration: none;
 }
+*/
 .contain1 .change button a p {
     display: block;
     margin: auto;
     padding-top: 10px;
     text-decoration: none;
-    color: #aaa;
+    color: #222222;
 }
 .contain1 .save button{
     width: 48%;
@@ -644,19 +681,21 @@ body{
     margin-top: 10px;
     border: none;
     background: #eee;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
+/*
 .contain1 .save button:hover{
     background: #151515;
     color: #aaa;
     text-decoration: none;
 }
+*/
 .contain1 .save button a p {
     display: block;
     margin: auto;
     padding-top: 10px;
     text-decoration: none;
-    color: #aaa;
+    color: #222222;
 }
 /* Fin Account */
 
@@ -866,6 +905,7 @@ body{
 
     #sidebar-wrapper {
         width: 250px;
+        overflow: scroll;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -903,7 +943,7 @@ body{
         float: none;
     }
     #wrapper.toggled .sounds p{
-        display: inline;
+        display: inline-block;
     }
     .sounds{
         height: 100px;
@@ -918,7 +958,7 @@ body{
         top: 65px;
     }
     .rights{
-        margin-top: 125vw;
+        margin-top: 192%;
     }
     #wrapper.toggled .top h2{
         font-size: 15px;
@@ -987,6 +1027,218 @@ body{
     }
     .all2{
     margin-top: 20vw;
+    }
+    .arrow{
+        background: none;
+    }
+    .themes img{
+    margin-left: -35px;
+    display: block;
+    width: 70px;
+    height: 100px;
+    }
+    .themes p{
+    margin-left: -28px;
+    }
+    #wrapper.toggled .themes p{
+    margin-left: 0;
+    }
+    .themes .userimg{
+     margin-left: -35px;
+    display: block;
+    width: 70px;
+    height: 100px;
+    }
+    #wrapper.toggled .themes img{
+    margin-left: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    }
+    #wrapper.toggled .themes .userimg{
+     margin-left: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    }
+    .likes{
+    top: 65px;
+    }
+}
+@media(max-width:374px){
+    #wrapper{
+        padding-left: 250px;
+    }
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+        overflow: scroll;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+    .sidebar-nav{
+        margin-right: auto;
+        margin-left: auto;
+        width: 100%;
+    }
+    .sidebar-nav li{
+        display: block;
+        width: 100%;
+    }
+    .arrowphone{
+        display: block;
+        transform: rotate(180deg);
+    }
+    .arrow{
+        transform: rotate(180deg);
+        position: relative;
+        float: left;
+    }
+    .top{
+        float: none;
+    }
+    #wrapper.toggled .sounds p{
+        display: inline-block;
+    }
+    .sounds{
+        height: 100px;
+    }
+    .sounds p{
+        display: none;
+    }
+    .time{
+        top: 65px;
+    }
+    .arrowplay{
+        top: 65px;
+    }
+    .rights{
+        margin-top: 192%;
+    }
+    #wrapper.toggled .top h2{
+        font-size: 15px;
+    }
+    #wrapper.toggled .command{
+        top: -30px;
+    }
+    #wrapper.toggled .previous {
+        padding: 0;
+        top: 40px;
+        height: 50px;
+    }
+    #wrapper.toggled .next {
+        padding: 0;
+        top: 40px;
+        height: 50px;
+    }
+    #wrapper.toggled .start {
+        padding: 0;
+        top: 40px;
+        height: 50px;
+    }
+    #wrapper.toggled .restart {
+        padding: 0;
+        top: 40px;
+        height: 50px;
+    }
+    #wrapper.toggled .previous img{
+        display: block;
+        margin: auto;
+        margin-top: 12px;
+    }
+    #wrapper.toggled .next img{
+        display: block;
+        margin: auto;
+        margin-top: 12px;
+    }
+    #wrapper.toggled .start img{
+        display: block;
+        margin: auto;
+        margin-top: 12px;
+    }
+    #wrapper.toggled .restart img{
+        display: block;
+        margin: auto;
+        margin-top: 12px;
+    }
+    #wrapper.toggled .previous p {
+        display: none;
+        padding: 0;
+    }
+    #wrapper.toggled .next p{
+        display: none;
+        padding: 0;
+    }
+    #wrapper.toggled .start p{
+        display: none;
+        padding: 0;
+    }
+    #wrapper.toggled .restart p{
+    display: none;
+    }
+    .contain{
+        margin-top: 11vw;
+        font-size: 15px;
+    }
+    .all2{
+    margin-top: 20vw;
+    }
+    #wrapper.toggled .sounds .iconsounds{
+    display: inline-block;
+    }
+    .sounds .iconsounds{
+    display: none;
+    }
+    .arrow{
+        background: none;
+    }
+    .themes img{
+    margin-left: -35px;
+    display: block;
+    width: 70px;
+    height: 100px;
+}
+.themes .userimg{
+     margin-left: -35px;
+    display: block;
+    width: 70px;
+    height: 100px; 
+    }
+    #wrapper.toggled .themes img{
+    margin-left: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    }
+    #wrapper.toggled .themes .userimg{
+     margin-left: auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+    } 
+    .themes p{
+    margin-left: -28px;
+    }
+    #wrapper.toggled .themes p{
+    margin-left: 0;
+    }
+    .likes{
+    top: 65px;
     }
 }
 

@@ -1,13 +1,4 @@
-<?php session_start();
-  if(!isset($_SESSION['user']))
-  {
-    header('Location: login.php');
-    exit;
-  }
-?>
-
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
 
   <head>
@@ -27,6 +18,8 @@
       <!-- Custom CSS -->
       <link href="style/style.css" rel="stylesheet">
       <link rel="stylesheet" href="style/font-awesome.min.css">
+
+      <link rel="icon" type="image/png" href="img/favicon.ico" />
 
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,32 +44,44 @@
             </a>
           </li>
           <li>
-            <a href="theme.php"> <img class="icons" src="img/1.svg" alt="">Themes</a>
+            <a href="index.php"> <img class="icons" src="img/1.svg" alt="">Themes</a>
           </li>
           <li>
-            <a href="trendingSounds.php"><img class="icons" src="img/2.svg" alt="">Trending sounds</a>
+            <a href="trendingSounds.php"><img class="icons" src="img/2.svg" alt="">Trending Sounds</a>
           </li>
           <li>
-            <a href="#menu-togglephone"  id="menu-togglephone" class="active"><img class="icons" src="img/3.svg" alt="">Best of Community</a>
+            <a href='#menu-togglephone'  id='menu-togglephone' class='active'><img class="icons" src="img/3.svg" alt="">Best of Community</a>
           </li>
           <li>
             <a href="leaderboard.php"><img class="icons" src="img/4.svg" alt="">Leaderboard</a>
           </li>
           <li>
-            <a href="account.php"><img class="icons" src="img/5.svg" alt="">Account settings</a>
-          </li>
-          <li>
             <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
-          <li>
-            <a href="mydubs.php"><img class="icons" src="img/7.svg" alt="">My video </a>
-          </li>
-          <li>
-            <a href="dc.php"><img class="icons" src="img/8.svg" alt="">Sign out </a>
-          </li>
+          <?php session_start();
+          if(isset($_SESSION['user']))
+          {
+            echo "
+            <li>
+              <a href='mydubs.php'><img class='icons' src='img/7.svg' alt=''>My Dubs</a>
+            </li>
+            <li>
+              <a href='account.php'><img class='icons' src='img/5.svg' alt=''>Account Settings</a>
+            </li>
+            <li>
+              <a href='dc.php'><img class='icons' src='img/8.svg' alt=''>Sign out</a>
+            </li> ";
+          }
+          else
+          {
+           echo "
+            <li>
+              <a href='login.php'><img class='icons' src='img/8.svg' alt=''>Sign in</a>
+            </li>"; 
+          }
+          ?>
 
         </ul>
-        <p class="rights">DubWars © | All rights reserved</p>
       </div>
           <!-- /#sidebar-wrapper -->
 
@@ -88,26 +93,26 @@
                           <button href="#menu-toggle" class=" col-lg-1 col-md-1 col-sm-2 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
                       </div>
                       <div class="col-lg-12 center">
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Don't do that"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Yoda, you seek"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"It's a trap!"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"I'm your father"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"It's a trap!"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"I'm a Jedi"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Don't do that"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Army or not..."</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Always two"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Jabba the hut"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Look sir, droids"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Totally true"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"I'm your father"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Jabba the hut"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Don't do that"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Hey sir"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"I'm a Jedi"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Yoda, you seek"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"Always two"</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>"I'm your father"</p></div>
 
                          
                       </div>

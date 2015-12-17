@@ -14,6 +14,14 @@
         	$uploadDirectory = "uploads/$fileName";
             $bdd->exec("INSERT INTO quotes_data(id, url, owner, quote_id) VALUES('', '$onlyName', '$owner', '$id')");
 
+            $query = $bdd->prepare("SELECT * FROM users WHERE nick = '$owner'");
+            $query->execute();
+            $result = $query->fetch();
+            
+            $increment = $result["score"] + 1;
+
+            $bdd->exec("UPDATE users SET score = '$increment' WHERE nick = '$owner'");
+ 
         	if (!move_uploaded_file($_FILES["${type}-blob"]["tmp_name"], $uploadDirectory)) {
             echo("Problem moving uploaded file.");
         	}
