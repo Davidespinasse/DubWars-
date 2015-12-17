@@ -89,16 +89,17 @@
                         <?php
 
                             echo    "<audio autoplay src='". $dataQuote["audio"] ."' id='audio'></audio>
-                                    <video width='100%' height='100%' autoplay class='finishedVideo'> 
-                                    <source src='./uploads/" . $fileId . ".webm' type='video/webm'></video>";
+                                    <video width='100%' height='100%' autoplay class='archivedVideo'> 
+                                        <source src='./uploads/" . $fileId . ".webm' type='video/webm'>
+                                    </video>";
                         ?>
 					</div>
                     <div class="col-lg-12 col-md-12 col-xs-12 command">
                     <a class="col-lg-2 col-md-2 col-xs-2 blank" href="#" > </a>
                     
                     <div class="col-lg-3 col-md-3 col-xs-2 blank"></div>
-                    <a class="col-lg-2 col-md-2 col-xs-4 start" href="#" id="startButton"> <p>Start</p> <img src="img/arrow.png" alt=""></a>
-                    <a class="col-lg-2 col-md-2 col-xs-4 restart" href="#" id="restartRecordButton"> <p>Restart </p><img src="img/restart.png" alt=""></a>
+                    <div class="col-lg-2 col-md-2 col-xs-4 blank" href="#"></div>
+                    <div class="col-lg-2 col-md-2 col-xs-4 blank" href="#"></div>
                     <div class="col-lg-3 col-md-3 col-xs-2 blank"></div>
                     <a class="col-lg-2 col-md-2 col-xs-2 blank" href="#" > </a>
                     
@@ -111,7 +112,8 @@
     
     
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/scriptPlayer.js"></script>
+    <script src="js/scriptVolume.js"></script>
     
 	<script>
     $("#menu-toggle").click(function(e) {
