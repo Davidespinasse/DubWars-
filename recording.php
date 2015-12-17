@@ -1,3 +1,11 @@
+<?php session_start();
+  if(!isset($_SESSION['user']))
+  {
+    header('Location: login.php');
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +60,7 @@
                     <div class="col-lg-12 top">
                         <button href="#menu-toggle" class="col-lg-1 col-md-1 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
                         <div class="col-lg-2 col-md-2 col-xs-1 blank"></div>
-                            <?php session_start();
+                            <?php 
                                 $quoteId = $_GET['quote'];
                                 $_SESSION['actualId'] = $_GET['quote'];
                                 $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');

@@ -1,3 +1,11 @@
+<?php session_start();
+  if(!isset($_SESSION['user']))
+  {
+    header('Location: login.php');
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,7 +80,7 @@
                     </div>
                     <div class="col-lg-12 center">
 
-                    <?php session_start();
+                    <?php
 
                       $themeId = $_GET['theme'];
                       
