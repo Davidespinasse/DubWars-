@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DubWars - Thèmes</title>
+    <title>DubWars - My dubs</title>
 
     <link rel="stylesheet" href="style/reset.css">
     <link href="style/bootstrap.min.css" rel="stylesheet">
@@ -75,22 +75,27 @@
 
                         $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
 
-                        function displayTheme($id, $name, $img){
-                          echo  "<a href='quotes.php?theme=". $id ."'>
+                        $user = $_SESSION['user'];
+
+                        $number = 1;
+
+                        function displayDubs($url, $number){
+                            echo  "<a href='play.php?id=". $url ."'>
                                   <div class='col-lg-3 col-md-12 col-sm-12 themes'>
-                                    <img src='" . $img . "' alt=>
-                                    <p>" . $name . "</p>
+                                    <img src='img/11.png' alt=>
+                                    <p>#" . $number . "</p>
                                   </div>
                                 </a>";
                         }
 
-                        $query = $bdd->prepare("SELECT * FROM themes_list");
+                        $query=$bdd->prepare("SELECT url, owner FROM quotes_data WHERE owner = '$user'");
                         $query->execute();
-                        $result = $query->fetchAll();
+                        $dataFile=$query->fetchAll();
 
-                        foreach ($result as $row) 
-                        {
-                          displayTheme($row["id"], $row["name"],$row["img"]);
+                        foreach ($dataFile as $row) 
+                        {  
+                            displayDubs($row['0'], $number);
+                            $number++;
                         }
 
                       ?>
