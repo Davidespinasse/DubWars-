@@ -66,7 +66,7 @@ function cameraStreamAndRecord(){
                 $('#audio').get(0).play();
                 $('.restart').css('display','inline');
                 $('.stream').append("<video autoplay width='100%' height='100%' class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
-                $('.stream').append("<textarea>http://localhost:8888/dubwars-final/play.php?id="+name+"</textarea>");
+                $('.link').append("<b>Link of your dub : </b></br><a href='http://leonarddupuis.fr/play.php?id="+name+"'>http://leonarddupuis.fr/play.php?id="+name+"</a>");
                 sFileName = fileName;
               },1000);
             });
@@ -136,6 +136,7 @@ $(document).on('click', '.finishedVideo', function(){
 
 $(document).on('click', '#restartRecordButton', function(){
   $('.finishedVideo').remove();
+  $('.link a').remove();
   $('.stream').append(video);
   audio.currentTime = 0;
   audio.pause();

@@ -5,7 +5,6 @@
     exit;
   }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +67,11 @@
                         <div class="col-lg-2 col-md-2 col-xs-1 blank"></div>
                             <?php 
                                 $quoteId = $_GET['quote'];
+                                
                                 $_SESSION['actualId'] = $_GET['quote'];
-                                $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+
+                                $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
+
                                 $query=$bdd->prepare("SELECT id, quote, audio FROM quotes_list WHERE id = '$quoteId'");
                                 $query->execute();
                                 $data=$query->fetch();
@@ -84,17 +86,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-12 link"></div>
                     <div class="col-lg-12 stream">
                         <video autoplay width='100%' height='100%' id='video'></video>
                     </div>
                     <div class="col-lg-12 col-md-12 col-xs-12 command">
-                    <a class="col-lg-2 col-md-2 col-xs-2 blank" href="#" > </a>
-                    
-                    <div class="col-lg-3 col-md-3 col-xs-2 blank"></div>
-                    <a class="col-lg-2 col-md-2 col-xs-4 start" href="#" id="startButton"> <p>Start</p> <img src="img/arrow.png" alt=""></a>
-                    <a class="col-lg-2 col-md-2 col-xs-4 restart" href="#" id="restartRecordButton"> <p>Restart </p><img src="img/restart.png" alt=""></a>
-                    <div class="col-lg-3 col-md-3 col-xs-2 blank"></div>
-                    <a class="col-lg-2 col-md-2 col-xs-2 blank" href="#" > </a>
+                      <div class="col-lg-5 col-md-3 col-xs-2"> </div>
+                      <a class="col-lg-2 col-md-2 col-xs-4 start" href="#" id="startButton"> <p>Start</p> <img src="img/arrow.png" alt=""></a>
+                      <a class="col-lg-2 col-md-2 col-xs-4 restart" href="#" id="restartRecordButton"> <p>Restart </p><img src="img/restart.png" alt=""></a>
+                      <div class="col-lg-5 col-md-3 col-xs-2 blank"></div>
                     
                     </div>
                 </div>

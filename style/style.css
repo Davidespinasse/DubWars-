@@ -95,6 +95,14 @@ body{
     margin-left: auto;
     display: block;  
 }
+.themes .userimg{
+    margin-top: -10px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block; 
+    width: 100px;
+    height: 100px;
+}
 .themes p{
     color: #aaa;
     margin-top: 25px;
@@ -166,6 +174,7 @@ body{
     height: 35px;
     display: inline;
     margin-top: 7px;
+    margin-left: 20px;
 }
 .time{
     display: inline;
@@ -237,6 +246,20 @@ body{
     -o-transform: scaleX(0);
     transform: scaleX(0);
 }
+
+.link {
+    height: 10px;
+    padding-top: 25px;
+    text-align: center;
+    color: #fff;
+    line-height: 16px;
+}
+.link a {
+    color: #fff;
+    font-size: 14px;
+}
+
+
 #wrapper.toggled .top h2{
     font-size: 20px;
 }
@@ -834,29 +857,29 @@ body{
 }
 @media(max-width:767px) {
     
+    #wrapper{
+        padding-left: 250px;
+    }
     #wrapper.toggled {
         padding-left: 0;
     }
 
     #sidebar-wrapper {
-        width: 100%;
-        overflow: scroll;
+        width: 250px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 0%;
+        width: 0;
     }
 
     #page-content-wrapper {
         padding: 20px;
         position: relative;
-        display: none;
     }
 
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
-        display: block;
     }
     .sidebar-nav{
         margin-right: auto;
@@ -865,7 +888,6 @@ body{
     }
     .sidebar-nav li{
         display: block;
-        padding-left: 25vw;
         width: 100%;
     }
     .arrowphone{
@@ -880,8 +902,14 @@ body{
     .top{
         float: none;
     }
+    #wrapper.toggled .sounds p{
+        display: inline;
+    }
     .sounds{
         height: 100px;
+    }
+    .sounds p{
+        display: none;
     }
     .time{
         top: 65px;
@@ -952,6 +980,13 @@ body{
     }
     #wrapper.toggled .restart p{
     display: none;
+    }
+    .contain{
+        margin-top: 11vw;
+        font-size: 15px;
+    }
+    .all2{
+    margin-top: 20vw;
     }
 }
 

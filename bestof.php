@@ -1,3 +1,12 @@
+<?php session_start();
+  if(!isset($_SESSION['user']))
+  {
+    header('Location: login.php');
+    exit;
+  }
+?>
+
+
   <!DOCTYPE html>
   <html lang="en">
 
@@ -79,26 +88,26 @@
                           <button href="#menu-toggle" class=" col-lg-1 col-md-1 col-sm-2 col-xs-2 arrow" id="menu-toggle"><img src="img/arrow.png" alt=""></button>
                       </div>
                       <div class="col-lg-12 center">
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
-                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img src="img/11.png" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
+                         <div class="col-lg-3 col-md-12 col-sm-12 themes"><img class="userimg" src="img/t11.svg" alt=""><p>User</p></div>
 
                          
                       </div>

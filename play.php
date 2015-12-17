@@ -69,7 +69,7 @@
 
                             $fileId = $_GET['id'];
 
-                            $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+                            $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
 
                             $query=$bdd->prepare("SELECT url, quote_id FROM quotes_data WHERE url = '$fileId'");
                             $query->execute();

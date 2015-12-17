@@ -89,28 +89,28 @@
 
                     <?php
 
-                      $themeId = $_GET['theme'];
+                        $themeId = $_GET['theme'];
                       
-                      $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+                        $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
 
-                      function displayQuotes($id, $quote, $mini, $duration){
+                        function displayQuotes($id, $quote, $mini, $duration){
                         echo  "<a href='recording.php?quote=" . $id . "' class='col-lg-12 col-md-12 col-xs-12 sounds'>
                               <img class='iconsounds' src='" . $mini . "' alt=''>
                               <p>" . $quote . "</p>
                               <h5 class='time'>" . $duration . "</h5>
                               </a>";
-                      }
-
-                      $query = $bdd->prepare("SELECT * FROM quotes_list");
-                      $query->execute();
-                      $result = $query->fetchAll();
-
-                      foreach ($result as $row) 
-                      {
-                        if($themeId == $row["theme"]){
-                          displayQuotes($row["id"], $row["quote"], $row["mini"], $row["duration"]);
                         }
-                      }
+
+                        $query = $bdd->prepare("SELECT * FROM quotes_list");
+                        $query->execute();
+                        $result = $query->fetchAll();
+
+                        foreach ($result as $row) 
+                        {
+                            if($themeId == $row["theme"]){
+                            displayQuotes($row["id"], $row["quote"], $row["mini"], $row["duration"]);
+                            }
+                        }
 
                     ?>                       
                        

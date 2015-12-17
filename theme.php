@@ -6,6 +6,7 @@
   }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +61,7 @@
             <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
           <li>
-            <a href="mydubs.php"><img class="icons" src="img/7.svg" alt="">My video </a>
+            <a href="mydubs.php"><img class="icons" src="img/7.svg" alt="">My dubs</a>
           </li>
           <li>
             <a href="dc.php"><img class="icons" src="img/8.svg" alt="">Sign out </a>
@@ -82,12 +83,16 @@
 
                       <?php
 
-                        $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+                        $dsn = 'mysql:dbname=leonardddub;host=leonardddub.mysql.db';
+                        $user = 'leonardddub';
+                        $password = 'Rico95580';
+
+                        $bdd = new PDO($dsn, $user, $password);
 
                         function displayTheme($id, $name, $img){
                           echo  "<a href='quotes.php?theme=". $id ."'>
                                   <div class='col-lg-3 col-md-12 col-sm-12 themes'>
-                                    <img src='" . $img . "' alt=>
+                                    <img widht='100px' height='100px' src='" . $img . "' alt=>
                                     <p>" . $name . "</p>
                                   </div>
                                 </a>";

@@ -1,10 +1,10 @@
 <?php session_start();
-	if(isset($_SESSION['user']))
-	{
-		header('Location: theme.php');
-		exit;
-	}
-	?>
+  if(isset($_SESSION['user']))
+  {
+    header('Location: theme.php');
+    exit;
+  }
+?>
 
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@
                   </div>
                 </form>
                 <div class="inscription">
-                   <button type="submit"><a href="signin.php"><p>Sign in</p></a></button>
+                   <button type="submit"><a href="register.php"><p>Register</p></a></button>
                 </div>
                 <div class="forgot">
                   <a href="#">Forgot your password ?</a>

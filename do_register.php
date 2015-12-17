@@ -35,7 +35,7 @@
               <script>
                 function BackSignIn(){ 
                   setTimeout(function () {
-                  window.location.href= 'signin.php'; // the redirect goes here
+                  window.location.href= 'register.php'; // the redirect goes here
                   },2000);
                 }
 
@@ -46,61 +46,58 @@
                 }
               </script>
 
-                <?php session_start();
-                if((!empty($_POST['nick']))&&(!empty($_POST['pass'])))
-                {
-                  $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root'); //connect to db
+                <?php 
 
-                  $pass = $_POST['pass'];
-                  $pass2 = $_POST['pass2'];
+                  $dsn = 'mysql:dbname=leonardddub;host=leonardddub.mysql.db';
+                  $user = 'leonardddub';
+                  $password = 'Rico95580';
 
-                  $nick = $_POST['nick'];
-                  if(!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $nick))
+                  $bdd = new PDO($dsn, $user, $password);
+
+                  $pass =   $_POST['pass'];
+                  $pass2 =  $_POST['pass2'];
+                  $nick =   $_POST['nick'];
+
+                  $pass = sha1($pass);
+                  if((!empty($_POST['nick']))&&(!empty($_POST['pass'])))
                   {
-                    if(strlen($_POST['nick'])<=24)
-                    {
-                      $alreadyExist = $bdd->prepare("SELECT * from users WHERE nick=?");
-                      $alreadyExist->execute(array($nick));
-                      if (empty($alreadyExist->fetchAll())) //check if nickname already exist
-                      { 
-                        if($pass == $pass2) //matching passwords
+                    if(!preg_match('/[\'^£$%&*()}{@#~?><>,|="_+¬-]/', $nick)){
+                      if(strlen($_POST['nick'])<=24)
+                      {
+                        $sth = $bdd->prepare("SELECT * FROM users WHERE nick = '$nick'");
+                        $sth->execute();
+                        $data = $sth->fetchAll();
+                        if (empty($data)) //check if nickname already exist
                         { 
-                        
-                        $pass = sha1($pass);
-
                         $bdd->exec("INSERT INTO users(id, nick, pass) VALUES('', '$nick', '$pass')");
                         echo '<h2>You have successfully registered !</h2>
                               <script>GoNext()</script>';
-                        } 
+                        }
                         else
                         {
-                          echo '<h2>The passwords you entered do not match.</h2>
-                                <script>BackSignIn()</script>';
-                        }
-                      } 
-                      else 
-                      {  
-                        echo '<h2>This username is already taken.</h2>
+                          echo '<h2>This username is already taken.</h2>
                               <script>BackSignIn()</script>';
+                        }
+
+                      }
+                      else
+                      {
+                        echo '<h2>Username can at most be 24 characters.</h2>
+                            <script>BackSignIn()</script>';
                       }
                     }
                     else
                     {
-                      echo '<h2>Username can at most be 24 characters.</h2>
+                      echo '<h2>Please, don\'t use special symbols.</h2>
                             <script>BackSignIn()</script>';
                     }
                   }
                   else
                   {
-                    echo '<h2>Special characters are not allowed.</h2>
+                    echo '<h2>Please fill in the form.</h2>
                           <script>BackSignIn()</script>';
                   }
-                }
-                else
-                {
-                  echo '<h2>Veuillez remplir chaque champs.</h2>
-                        <script>BackSignIn()</script>';
-                }
+
               ?>
               </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1 blank"></div>

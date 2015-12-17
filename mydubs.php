@@ -81,7 +81,7 @@
 
                       <?php
 
-                        $bdd = new PDO('mysql:host=localhost:8889;dbname=dubwars;charset=utf8', 'root', 'root');
+                        $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
 
                         $user = $_SESSION['user'];
 
@@ -90,7 +90,7 @@
                         function displayDubs($url, $number){
                             echo  "<a href='play.php?id=". $url ."'>
                                   <div class='col-lg-3 col-md-12 col-sm-12 themes'>
-                                    <img src='img/11.png' alt=>
+                                    <img width='100px' height='100px' src='img/t11.svg' alt=>
                                     <p>#" . $number . "</p>
                                   </div>
                                 </a>";

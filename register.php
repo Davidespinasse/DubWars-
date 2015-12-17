@@ -4,7 +4,7 @@
     header('Location: theme.php');
     exit;
   }
-  ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>DubWars - Sign in</title>
+    <title>DubWars - Register</title>
 
     <link rel="stylesheet" href="style/reset.css">
     <link href="style/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1 blank"></div>
               <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10 form">
               <h2>Sign in</h2>
-                <form action="do_signin.php" method="post">
+                <form action="do_register.php" method="post">
               <div>
                 <label for="username">Username :</label>
                 <input type="text" id="username" name="nick" />
@@ -55,7 +55,7 @@
                 <input type="password" id="password2" name="pass2" />
               </div>
                <div class="inscriptionfinal">
-               <button  href="#" type="submit"><a href="#"><p>Sign in</p></a></button>
+               <button  href="#" type="submit"><a href="#"><p>Register</p></a></button>
             </div>
             </form>
 
