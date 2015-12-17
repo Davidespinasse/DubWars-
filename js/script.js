@@ -49,7 +49,8 @@ function cameraStreamAndRecord(){
 
           if(alreadyOn == false){
             var fileType = 'video';
-            var fileName = alea+'.webm';
+            var name = alea;
+            var fileName = name + '.webm';
             var test = 0;
 
             var formData = new FormData();
@@ -65,6 +66,7 @@ function cameraStreamAndRecord(){
                 $('#audio').get(0).play();
                 $('.restart').css('display','inline');
                 $('.stream').append("<video autoplay width='100%' height='100%' class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
+                $('.stream').append("<textarea>http://localhost:8888/dubwars-final/play.php?id="+name+"</textarea>");
                 sFileName = fileName;
               },1000);
             });
@@ -142,6 +144,7 @@ $(document).on('click', '#restartRecordButton', function(){
   $('.start').css('display', 'inline');
   $('.restart').css('display','none'); 
 });
+
 
 /*
 * VOLUME BAR 
