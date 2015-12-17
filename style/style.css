@@ -361,6 +361,276 @@ body{
     transform: rotate(180deg);
 }
 
+/* Connection */
+
+.titlelogo {
+    height: 20vw;
+}
+.titlelogo img{
+    display: block;
+    margin-top: 8vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+.contain .connection{
+    background: #222222;
+    color: #aaa;
+    margin-top: 4vw;
+}
+.contain .connection a{
+    text-decoration: none;
+}
+.contain1{
+    text-align: center;
+}
+.contain1 label{
+    display: block;
+    margin-top: 10px;
+    float: left;
+}
+.contain1 input{
+    width: 100%;
+    margin-bottom: 20px;
+    background: #eee;
+}
+.contain1 .button button{
+    width: 48%;
+    text-align: center;
+    float: left;
+    margin-top: 10px;
+    border: none;
+    background: #eee;
+}
+.contain1 .button button:hover{
+    background: #151515;
+    color: #aaa;
+}
+.contain1 .button button a p {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #aaa;
+}
+.contain1 .inscription button{
+    width: 48%;
+    text-align: center;
+    float: right;
+    margin-top: 10px;
+    border: none;
+    background: #eee;
+}
+.contain1 .inscription button:hover{
+    background: #151515;
+    color: #aaa;
+    text-decoration: none;
+}
+.contain1 .inscription button a p {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #aaa;
+}
+.contain1 .inscriptionfinal button{
+    width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+    background: #eee;
+    margin-bottom: 20px;
+}
+.contain1 .inscriptionfinal button:hover{
+    background: #151515;
+    color: #aaa;
+    text-decoration: none;
+}
+.contain1 .inscriptionfinal button a p {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #aaa;
+}
+.contain1 .forgot {
+    width: 100%;
+}
+.contain1 .forgot a{
+    float: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #eee;
+    text-decoration: underline;
+}
+.contain1 .forgot a:hover{
+    text-decoration: none;
+}
+
+/* fin Connection */
+
+/* Acceuille */
+
+.all{
+    background: url('../img/Star-Wars-Battlefront-Cover-Poster-Wallpaper-HD.jpg') center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.2;
+}
+.all2{
+    color: #eee;
+    font-size: 1px;
+    text-align: center;
+    margin-top: 4vw;
+}
+.all2 .first a h2{
+    color: #eee;
+    font-size: 30px;
+}
+.all2 .first a:hover{
+    text-decoration: none;
+}
+.first a img{
+    width: 40%;
+    height: 40%;
+}
+.all2 .second a h2{
+    color: #eee;
+    font-size: 30px;
+}
+.all2 .second a:hover{
+    text-decoration: none;
+}
+.second a img{
+    width: 30%;
+    height: 30%;
+}
+.all2 .third a h2{
+    color: #eee;
+    font-size: 30px;
+}
+.all2 .third a:hover{
+    text-decoration: none;
+}
+.third a img{
+    width: 40%;
+    height: 40%;
+}
+.all3{
+     color: #aaa;
+    font-size: 20px;
+    text-align: center;
+}
+.all3 .dubing a button{
+    width: 100%;
+    margin-top: 6vw;
+    height: 40px;
+    color: #222222;
+    border: none;
+    background: #eee;
+}
+.all3 .dubing a button p{
+    margin-top: 10px;
+}
+/* Fin Acceuille */
+
+/* Best of Community */
+
+.sounds .iconsuser{
+    width: 25px;
+    height: 35px;
+    display: inline;
+    margin-top: -15px;
+    margin-left: 20px;
+}
+.sounds .rank{
+    display: inline-block;
+    margin-top: 20px;
+}
+.likes{
+    display: inline;
+    top: 10px;
+    right: 50px;
+    position: absolute;
+}
+.arrowplay{
+    right: 10px;
+    top: 15px;
+    width: 20px;
+    height: 25px;
+    position: absolute;
+    transform: rotate(180deg);
+}
+/* Fin Best Of Community */
+
+/* Account */
+.item img{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   height: 500px;
+   width: 300px;
+   border-radius: 100% 100%;
+}
+.carousel-control.left{
+    background: none;
+}
+.carousel-control.right{
+    background: none;
+}
+.carousel-indicators{
+    margin-top: 50px;
+}
+.titleaccount{
+    text-align: center;
+    color: #eee;
+}
+.contain1 .change button{
+    width: 48%;
+    float: left;
+    margin-top: 10px;
+    border: none;
+    background: #eee;
+    margin-bottom: 20px;
+}
+.contain1 .change button:hover{
+    background: #151515;
+    color: #aaa;
+    text-decoration: none;
+}
+.contain1 .change button a p {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #aaa;
+}
+.contain1 .save button{
+    width: 48%;
+    float: right;
+    margin-top: 10px;
+    border: none;
+    background: #eee;
+    margin-bottom: 20px;
+}
+.contain1 .save button:hover{
+    background: #151515;
+    color: #aaa;
+    text-decoration: none;
+}
+.contain1 .save button a p {
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    text-decoration: none;
+    color: #aaa;
+}
+
+.form h2{
+    padding-top: 10px;
+}
+
 
 
 /* Sidebar Styles */
