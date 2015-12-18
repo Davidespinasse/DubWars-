@@ -12,6 +12,6 @@ Please go on Firefox to benefit of the main feature because our website is not i
 ## Project
 
 We used for this school project the frameworks [MediaStreamRecorder.js](https://github.com/streamproc/MediaStreamRecorder)
-and [Bootstrap](http://getbootstrap.com/)
+and [Bootstrap](http://getbootstrap.com/).
 Thanks to the authors !
 
