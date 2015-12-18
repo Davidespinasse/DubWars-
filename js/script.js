@@ -48,6 +48,13 @@ function cameraStreamAndRecord(){
         mediaRecorder.ondataavailable = function (blob) {
 
           if(alreadyOn == false){
+
+            // do not start the loader before the end of the audio
+            setTimeout(function(){
+              $('#video').remove();
+              $('.stream').append("<div class='circle'><div class='circleInside'></div></div>");
+            },1000);  
+
             var fileType = 'video';
             var name = alea;
             var fileName = name + '.webm';
@@ -60,8 +67,7 @@ function cameraStreamAndRecord(){
             // interact with save.php in order to register the record
             xhr('save.php', formData, function (fileURL) {
               // allow time to register the record (in case it's heavy)
-              $('#video').remove();
-              $('.stream').append("<div class='circle'><div class='circleInside'></div></div>");
+
               setTimeout(function(){
                 // append the record in DOM without reload the page
                 $('#audio').get(0);
@@ -72,7 +78,7 @@ function cameraStreamAndRecord(){
                 $('.stream').append("<video width='100%' height='100%' class='finishedVideo'> <source src='./uploads/"+ fileName + "' type='video/webm'></video>");
                 paused = true;
                 sFileName = fileName;
-              },3000);
+              },10000);
             });
             alreadyOn = true;  
           }  

@@ -92,7 +92,7 @@
                     <input type="password" id="password" name="pass" />
                   </div>
                   <div class="button">
-                    <button type="submit"><a href="theme.html"><p>Log in</p></a></button>
+                    <button type="submit"><a href='#'><p>Log in</p></a></button>
                   </div>
                 </form>
 
@@ -160,6 +160,9 @@
     $("#menu-togglephone").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
+    });
+    $(".inscription").click(function(e) { // in order ton fix mozilla's issues
+         window.location.href='register.php';
     });
     </script>
 
