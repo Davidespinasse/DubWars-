@@ -51,6 +51,7 @@
             <a href='#menu-togglephone'  id='menu-togglephone' class='active'><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
           <?php session_start();
+          require_once('139E023.php');
           if(isset($_SESSION['user']))
           {
             echo "

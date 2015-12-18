@@ -1,4 +1,5 @@
 <?php session_start();
+  require_once('139E023.php');
   if(isset($_SESSION['user']))
   {
     header('Location: index.php');
@@ -122,13 +123,6 @@
         </script>
 
         <?php 
-
-                  $dsn = 'mysql:dbname=leonardddub;host=leonardddub.mysql.db';
-                  $user = 'leonardddub';
-                  $password = 'Rico95580';
-
-                  $bdd = new PDO($dsn, $user, $password);
-
                   $pass =   $_POST['pass'];
                   $pass2 =  $_POST['pass2'];
                   $nick =   $_POST['nick'];

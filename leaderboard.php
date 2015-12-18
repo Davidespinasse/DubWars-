@@ -59,6 +59,7 @@
             <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
           <?php session_start();
+          require_once('139E023.php');
           if(isset($_SESSION['user']))
           {
             echo "
@@ -97,8 +98,6 @@
 
                             $rank = 0;
                           
-                            $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
-
                             function displayRanks($rank, $name, $score){
                             echo  "<a href='#' class='col-lg-12 col-md-12 col-xs-12 sounds'>
                                     <h2 class='rank'>".$rank."</h2><img class='iconsuser' src='img/profil1.png' alt=''>

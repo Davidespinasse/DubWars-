@@ -53,6 +53,7 @@
             <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
           <?php session_start();
+          require_once('139E023.php');
           if(isset($_SESSION['user']))
           {
             echo "
@@ -89,12 +90,6 @@
                     <div class="col-lg-12 center">
 
                       <?php
-
-                        $dsn = 'mysql:dbname=leonardddub;host=leonardddub.mysql.db';
-                        $user = 'leonardddub';
-                        $password = 'Rico95580';
-
-                        $bdd = new PDO($dsn, $user, $password);
 
                         function displayTheme($id, $name, $img){
                           echo  "<a href='quotes.php?theme=". $id ."'>

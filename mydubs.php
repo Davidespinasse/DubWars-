@@ -1,4 +1,5 @@
 <?php session_start();
+  require_once('139E023.php');
   if(!isset($_SESSION['user']))
   {
     header('Location: login.php');
@@ -81,8 +82,6 @@
                     <div class="col-lg-12 center">
 
                       <?php
-
-                        $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
 
                         $user = $_SESSION['user'];
 

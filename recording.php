@@ -1,4 +1,5 @@
 <?php session_start();
+  require_once('139E023.php');
   if(!isset($_SESSION['user']))
   {
     header('Location: login.php');
@@ -70,9 +71,7 @@
                                 $quoteId = $_GET['quote'];
                                 
                                 $_SESSION['actualId'] = $_GET['quote'];
-
-                                $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
-
+                              
                                 $query=$bdd->prepare("SELECT id, quote, audio FROM quotes_list WHERE id = '$quoteId'");
                                 $query->execute();
                                 $data=$query->fetch();

@@ -59,6 +59,7 @@
             <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
           <?php session_start();
+          require_once('139E023.php');
           if(isset($_SESSION['user']))
           {
             echo "
@@ -95,9 +96,7 @@
                     </div>
                     <div class="col-lg-12 center">
                        <?php
-                      
-                        $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
-
+                       
                         function displayQuotes($id, $quote, $mini, $duration){
                         echo  "<a href='recording.php?quote=" . $id . "' class='col-lg-12 col-md-12 col-xs-12 sounds'>
                               <img class='iconsounds' src='" . $mini . "' alt=''>

@@ -45,6 +45,7 @@
             <a href="shop.php"><img class="icons" src="img/6.svg" alt="">Shop</a>
           </li>
           <?php session_start();
+          require_once('139E023.php');
           if(isset($_SESSION['user']))
           {
             echo "
@@ -82,8 +83,6 @@
                         <?php session_start();
 
                             $fileId = $_GET['id'];
-
-                            $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
 
                             $query=$bdd->prepare("SELECT url, quote_id FROM quotes_data WHERE url = '$fileId'");
                             $query->execute();

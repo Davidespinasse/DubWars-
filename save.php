@@ -1,6 +1,6 @@
 <p>Uploading file...</p>
     <?php session_start();
-    $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
+    require_once('139E023.php');
 	foreach(array('video', 'audio') as $type) {
     	if (isset($_FILES["${type}-blob"])) {
 

@@ -1,4 +1,5 @@
 <?php session_start();
+  require_once('139E023.php');
   if(isset($_SESSION['user']))
   {
     header('Location: index.php');
@@ -120,8 +121,6 @@
                     if((!empty($_POST['nick']))&&(!empty($_POST['pass'])))
                     {
                       $pass = sha1($_POST['pass']);
-
-                      $bdd = new PDO('mysql:host=leonardddub.mysql.db;dbname=leonardddub;charset=utf8', 'leonardddub', 'Rico95580');
 
                       $query=$bdd->prepare("SELECT id, nick, pass FROM users WHERE nick = :nick");
                           $query->bindValue(':nick',$_POST['nick'], PDO::PARAM_STR);
