@@ -2,9 +2,12 @@
 * REPLAY ARCHIVED VIDEOS (page play.php) 
 */
 
-var pausedArc = false, // control play/pause archived bideo
+var pausedArc = true, // control play/pause of archived bideo
     audio = document.querySelector('#audio'),
     archivedVideo = document.querySelector('.archivedVideo');
+    
+    audio.pause();
+    archivedVideo.pause();
 
 archivedVideo.addEventListener('click', function(){
 
